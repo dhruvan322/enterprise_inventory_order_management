@@ -10,8 +10,8 @@ COPY build.gradle settings.gradle ./
 # Copy source code
 COPY src ./src
 
-# Build the application (skip tests for faster build)
-RUN gradle clean build -x test --no-daemon
+# Build the application (skip tests for faster build and limit Render memory footprint)
+RUN gradle clean build -x test --no-daemon -Dorg.gradle.jvmargs="-Xmx512m"
 
 # Use lightweight JRE image to run the application
 FROM eclipse-temurin:17-jre

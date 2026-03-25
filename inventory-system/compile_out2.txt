@@ -1,11 +1,13 @@
-﻿.\gradlew : 
+﻿> Task :compileJava FAILED
+.\gradlew : 
 At line:1 char:1
-+ .\gradlew clean 
-build -x test > 
-out.txt 2>&1 ; cat 
-out.txt
++ .\gradlew build -x 
+test > compile_out.txt 
+2>&1 ; Get-Content 
+compile_ ...
 + ~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~
+~~
     + CategoryInfo     
          : NotSpecifi  
   ed: (:String) [],    
@@ -14,20 +16,19 @@ out.txt
    rorId : NativeComm  
   andError
  
-> Task :clean FAILED
-1 actionable task: 1 executed
 FAILURE: Build failed 
 with an exception.
 
 * What went wrong:
 Execution failed for 
-task ':clean'.
+task ':compileJava'.
 > java.io.IOException: 
 Unable to delete 
 directory 'C:\Users\HP\
 OneDrive\Desktop\enterp
 rise_inventory\inventor
-y-system\build'
+y-system\build\classes\
+java\main'
     Failed to delete 
 some children. This 
 might happen because a 
@@ -93,37 +94,6 @@ ive\Desktop\enterprise_
 inventory\inventory-sys
 tem\build\classes\java\
 main\com
-    - C:\Users\HP\OneDr
-ive\Desktop\enterprise_
-inventory\inventory-sys
-tem\build\classes\java\
-main
-    - C:\Users\HP\OneDr
-ive\Desktop\enterprise_
-inventory\inventory-sys
-tem\build\classes\java\
-test
-    - C:\Users\HP\OneDr
-ive\Desktop\enterprise_
-inventory\inventory-sys
-tem\build\classes\java
-    - C:\Users\HP\OneDr
-ive\Desktop\enterprise_
-inventory\inventory-sys
-tem\build\classes
-    - C:\Users\HP\OneDr
-ive\Desktop\enterprise_
-inventory\inventory-sys
-tem\build\generated\sou
-rces\annotationProcesso
-r\java\main
-    - C:\Users\HP\OneDr
-ive\Desktop\enterprise_
-inventory\inventory-sys
-tem\build\generated\sou
-rces\annotationProcesso
-r\java
-    - and more ...
 
 * Try:
 > Run with 
@@ -137,4 +107,5 @@ get full insights.
 > Get more help at http
 s://help.gradle.org.
 
-BUILD FAILED in 5s
+BUILD FAILED in 6s
+1 actionable task: 1 executed
