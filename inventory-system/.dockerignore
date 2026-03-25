@@ -1,0 +1,14 @@
+.gradle
+build/
+.git
+.gitignore
+*.md
+bin/
+out/
+out2.txt
+build_errors.txt
+.idea
+*.iws
+*.iml
+*.ipr
+.vscode/
