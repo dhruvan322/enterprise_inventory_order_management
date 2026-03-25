@@ -2,7 +2,8 @@
 FROM gradle:8.5-jdk17 AS build
 WORKDIR /app
 COPY . .
-RUN gradle build -x test
+# Disable daemon and limit memory to prevent OOM on Render Free Tier
+RUN gradle build -x test --no-daemon -Dorg.gradle.jvmargs="-Xmx300m"
 
 # Package stage
 FROM eclipse-temurin:17-jre-alpine
