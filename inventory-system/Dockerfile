@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the build files and download dependencies
 COPY build.gradle settings.gradle ./
-RUN gradle dependencies --no-daemon
+RUN gradle dependencies --no-daemon -Dorg.gradle.jvmargs="-Xmx256m"
 
 # Copy source code
 COPY src ./src
