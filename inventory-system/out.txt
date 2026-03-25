@@ -1,0 +1,28 @@
+Starting a Gradle Daemon, 1 incompatible and 2 stopped Daemons could not be reused, use --status for details
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> java.io.IOException: Unable to delete directory 'C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main'
+    Failed to delete some children. This might happen because a process has files open or has its working directory set in the target directory.
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\config
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\controller
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\dto
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\entity
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\repository
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\security
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system\service
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example\inventory_system
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com\example
+    - C:\Users\HP\OneDrive\Desktop\enterprise_inventory\inventory-system\build\classes\java\main\com
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 42s
+1 actionable task: 1 executed
