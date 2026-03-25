@@ -30,25 +30,19 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
 
-                // ✅ Enable CORS
-                .cors(cors -> {
-                })
+                // ✅ Proper CORS config
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
-                // ✅ Stateless session (IMPORTANT for JWT)
+                // ✅ Stateless session (JWT)
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
                 .authorizeHttpRequests(auth -> auth
-
                         // ✅ Allow auth APIs
                         .requestMatchers("/api/auth/**").permitAll()
 
-                        // ✅ Allow OPTIONS (important for CORS preflight)
-                        .requestMatchers("/**").permitAll() // TEMP FIX (explained below)
-
-                // ❌ Everything else secured (you can restore later)
-                // .anyRequest().authenticated()
-                )
+                        // ✅ Allow OPTIONS (CORS preflight)
+                        .requestMatchers("/**").permitAll())
 
                 // ✅ Add JWT filter
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
@@ -68,21 +62,21 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // ✅ Proper CORS config (IMPORTANT)
+    // ✅ FINAL CORS CONFIG (VERY IMPORTANT)
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration configuration = new CorsConfiguration();
+        CorsConfiguration config = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of(
+        config.setAllowedOrigins(List.of(
                 "https://enterprise-inventory-order-manageme.vercel.app"));
 
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(true);
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        source.registerCorsConfiguration("/**", config);
 
         return source;
     }
